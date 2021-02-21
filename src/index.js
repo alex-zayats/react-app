@@ -44,9 +44,12 @@ ReactDOM.render(
     <Header1 />
     <Header2 />
     <Header3 />
+    <div id="not-jsx"></div>
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+ReactDOM.render(React.createElement(Header3), document.getElementById('not-jsx'));
 
 
 reportWebVitals();
