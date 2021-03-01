@@ -2,8 +2,6 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const PATH = {
   SRC: path.join(__dirname, '/src')
 };
@@ -25,10 +23,5 @@ module.exports = merge(common, {
       colors: true
     },
     historyApiFallback: true
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: `${PATH.SRC}/index.html`
-    })
-  ]
+  }
 });
