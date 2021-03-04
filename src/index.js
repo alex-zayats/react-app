@@ -2,48 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 
-function Header1() {
+import { Header } from './components/Header';
+
+function App() {
   return (
-    <div className="App">
-      <header className="main-header">
-        Hello World Header 1
-      </header>
-    </div>
+    <>
+      <Header/>
+    </>
   );
-}
-
-class Header2 extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          Hello World Header 2
-        </header>
-      </div>
-    );
-  }
-}
-
-class Header3 extends React.PureComponent {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          Hello World Header 3
-        </header>
-      </div>
-    );
-  }
 }
 
 ReactDOM.render(
   <React.StrictMode>
-  <Header1 />
-  <Header2 />
-  <Header3 />
-  <div id="not-jsx"></div>
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('app')
 );
-
-ReactDOM.render(React.createElement(Header3), document.getElementById('not-jsx'));
