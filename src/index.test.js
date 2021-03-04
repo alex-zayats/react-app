@@ -1,3 +1,3 @@
-test('adds 1 + 2 to equal 3', () => {
+test('Math.round should work correctly', () => {
   expect(Math.round(1.23)).toBe(1);
 });
