@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './Header.scss';
 
-export function Header() {
+export function Header(props) {
   return (
     <>
       <header className="main-header">
-        <h3 class="title">Find Your Movie</h3>
+        {props.children}
       </header>
     </>
   );

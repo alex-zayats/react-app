@@ -56,6 +56,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: `${PATH.SRC}/index.html`
-    })
+    }),
+    new webpack.ProgressPlugin()
   ]
 };
