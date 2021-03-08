@@ -18,10 +18,10 @@ export function MoviesList() {
     <>
       <Spinner isLoading={isLoading} />
       <div className="movies-list">
-        <MovieCard name="test"  category="horror" />
-        <MovieCard name="test1" category="comedy" />
-        <MovieCard name="test2" category="horror" />
-        <MovieCard name="test3" category="comedy" />
+        <MovieCard name="Bohemian Rapsody"  category="horror" year={2003}/>
+        <MovieCard name="Terminator" category="comedy" year={2005}/>
+        <MovieCard name="Pirrates of Carrebian Sea" category="horror" year={2007}/>
+        <MovieCard name="Pirrates of Carrebian Sea 2" category="comedy" year={2009}/>
       </div>
     </>
   );
