@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .movie-card {
   width: 20%;
   min-height: 300px;
@@ -8,12 +10,12 @@
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 3px 3px 10px #424242;
+    box-shadow: 3px 3px 10px $secondaryTextColor;
   }
 
   .movie-image {
     height: 230px;
-    background-color: #f65261;
+    background-color: $mainColor;
     margin-bottom: 15px;
   }
 
@@ -24,13 +26,13 @@
   }
 
   .movie-category {
-    color: #777;
+    color: $mainTextColor;
   }
   
   .movie-year {
     float: right;
     padding: 5px;
-    border: 1px solid #555;
+    border: 1px solid $mainTextColor;
     border-radius: 3px;
   }
 }
