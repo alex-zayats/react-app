@@ -1,14 +1,18 @@
 import React from 'react';
 import './MoviesCategories.scss';
 
-export function MoviesCategories() {
+import PropTypes from 'prop-types';
+
+export function MoviesCategories(props) {
+  const {categories} = props;
+
   return (
     <div className="movies-categories">
-      <p className="movie-category">All</p>
-      <p className="movie-category">Documentary</p>
-      <p className="movie-category">Comedy</p>
-      <p className="movie-category">Horror</p>
-      <p className="movie-category">Crime</p>
+      {categories.map(category => <p className="movie-category">{category}</p>)}
     </div>
   );
+}
+
+MoviesCategories.propTypes = {
+  categories: PropTypes.array.isRequired
 }

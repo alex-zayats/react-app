@@ -29,6 +29,8 @@ const currentTheme = createMuiTheme({
   }
 });
 
+const movieCategories = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
+
 function App() {
   return (
     <ErrorBoundary>
@@ -40,7 +42,7 @@ function App() {
           </Container>
         </Header>
         <Container>
-          <MoviesCategories/>
+          <MoviesCategories categories={movieCategories}/>
           <MoviesList/>
         </Container>
         <Footer>
