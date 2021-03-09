@@ -8,7 +8,7 @@ export function MoviesCategories(props) {
 
   return (
     <div className="movies-categories">
-      {categories.map(category => <p className="movie-category">{category}</p>)}
+      {categories.map((category, index) => <p className="movie-category" key={index}>{category}</p>)}
     </div>
   );
 }
