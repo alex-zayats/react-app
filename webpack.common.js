@@ -22,10 +22,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    // alias: {
-    //   assets: path.resolve(PATH.ASSETS),
-    //   src: path.resolve(PATH.SRC)
-    // }
+    alias: {
+      src: path.resolve(PATH.SRC)
+    }
   },
   module: {
     rules: [
