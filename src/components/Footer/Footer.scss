@@ -1,0 +1,10 @@
+@import '~/src/variables.scss';
+
+footer {
+	font-family: SourceSans;
+	height: 75px;
+	padding: 20px 0;
+	margin-top: 75px;
+	background-color: $secondaryTextColor;
+	color: white;
+}

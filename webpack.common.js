@@ -17,12 +17,12 @@ module.exports = {
   },
   output: {
     path: PATH.DIST,
-    publicPath: '/'
+    publicPath: '/',
+    assetModuleFilename: 'assets/[hash][ext][query]'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      assets: path.resolve(PATH.ASSETS),
       src: path.resolve(PATH.SRC)
     }
   },
@@ -39,14 +39,15 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
-        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader',
-        options: { name: 'assets/fonts/[name].[ext]' }
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+         filename: 'fonts/[hash][ext][query]'
+        }
       },
       {
-        test: /\.(jpeg|png|gif)$/i,
-        loader: 'file-loader',
-        options: { name: 'assets/img/[name].[ext]' }
+        test: /\.(jpg|jpeg|png|gif)$/i,
+        type: 'asset/resource'
       }
     ]
   },
@@ -54,6 +55,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: `${PATH.SRC}/index.html`
-    })
+    }),
+    new webpack.ProgressPlugin()
   ]
 };

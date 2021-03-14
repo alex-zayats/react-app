@@ -1,7 +1,51 @@
-header {
-	margin: 50px auto;
+@import 'variables.scss';
 
-	&.main-header {
-		background: blue;
-	}
+body {
+  margin: 0;
+  background-color: $backgroundColor;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'SourceSans';
+  src: url('./fonts/sourcesanspro-light.eot');
+  src: url('./fonts/sourcesanspro-light.woff') format('woff'), url('./fonts/sourcesanspro-light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SourceSans';
+  src: url('./fonts/sourcesanspro-regular.eot');
+  src: url('./fonts/sourcesanspro-regular.woff') format('woff'), url('./fonts/sourcesanspro-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SourceSans';
+  src: url('./fonts/sourcesanspro-semibold.eot');
+  src: url('./fonts/sourcesanspro-semibold.woff') format('woff'), url('./fonts/sourcesanspro-semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SourceSans';
+  src: url('./fonts/sourcesanspro-bold.eot');
+  src: url('./fonts/sourcesanspro-bold.woff') format('woff'), url('./fonts/sourcesanspro-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
