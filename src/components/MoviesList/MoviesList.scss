@@ -1,5 +1,10 @@
 .movies-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  
+  .movies-not-found {
+    color: white;
+    font-size: 33px;
+    min-height: 400px;
+  }
 }

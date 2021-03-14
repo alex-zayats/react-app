@@ -4,13 +4,13 @@ import './MovieCard.scss';
 import PropTypes from 'prop-types';
 
 export function MovieCard(props) {
-  const {name, year, category} = props.movie;
+  const {title, year, category} = props.movie;
 
   return (
     <div className="movie-card">
       <div className="movie-image"></div> 
       <p className="movie-year">{year}</p>
-      <p className="movie-title">{name}</p>
+      <p className="movie-title">{title}</p>
       <p className="movie-category">{category}</p>
     </div>
   );
@@ -18,8 +18,8 @@ export function MovieCard(props) {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired
-  })
+  }).isRequired
 }

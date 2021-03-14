@@ -1,47 +1,68 @@
+var _ = require('lodash/core');
 import React, { useState, useEffect } from 'react';
 import { Spinner } from '../Spinner';
 import { MovieCard } from '../MovieCard';
 import './MoviesList.scss';
 
-export function MoviesList() {
+export function MoviesList({sortBy, category}) {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    console.log('isLoading changed: ' + isLoading);
-  });
+  setTimeout(() => setIsLoading(false), 2000); // will be moved to api
 
-  setTimeout(function() {
-    setIsLoading(false);
-  }, 2000);
+  useEffect(() => {
+    console.log('sortBy changed: ' + sortBy);
+  }, [sortBy]);
+
+  useEffect(() => {
+    console.log('category changed: ' + category);
+  }, [category]);
 
   const movies = [
     {
-      name: 'Bohemian Rapsody',
-      category: 'horror',
-      year: 2003
-    },
-    {
-      name: 'Terminator',
+      title: 'Terminator',
       category: 'comedy',
       year: 2005
     },
     {
-      name: 'Pirrates of Carrebian Sea',
+      title: 'Bohemian Rapsody',
+      category: 'horror',
+      year: 2003
+    },
+    {
+      title: 'Pirrates of Carrebian Sea 3',
+      category: 'comedy',
+      year: 2011
+    },
+    {
+      title: 'Pirrates of Carrebian Sea',
       category: 'horror',
       year: 2007
     },
     {
-      name: 'Pirrates of Carrebian Sea 2',
+      title: 'Pirrates of Carrebian Sea 2',
       category: 'comedy',
       year: 2009
     }
-  ]
+  ];
+
+  const getMovies = (sortBy, category) => {
+    return _.sortBy(movies, sortBy)
+      .filter(movie => category == 'All' || movie.category.toLowerCase() == category.toLowerCase())
+      .map(movie => <MovieCard movie={movie} key={movie.title}/>)
+  }
+
+  function showMovies() {
+    const movies = getMovies(sortBy, category);
+    return (movies.length > 0) 
+      ? movies
+      : <h4 className="movies-not-found">Sorry, not found movies for such category</h4>
+  }
 
   return (
     <>
-      <Spinner isLoading={isLoading} />
+      <Spinner isLoading={isLoading}/>
       <div className="movies-list">
-        {movies.map((movie, index) => <MovieCard movie={movie} key={index}/>)}
+        {showMovies()}
       </div>
     </>
   );
