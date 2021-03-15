@@ -13,16 +13,6 @@ export function Home() {
   const [currentSort, setСurrentSort] = useState('title');
   const [currentCategory, setСurrentCategory] = useState('All');
 
-  const updateSort = (updatedSort) => {
-    setСurrentSort(updatedSort);
-    console.log('sortBy set: ' + updatedSort);
-  }
-
-  const updateCategory = (updatedCategory) => {
-    setСurrentCategory(updatedCategory);
-    console.log('Category set: ' + updatedCategory);
-  }
-
   return (
     <>
       <Header>
@@ -33,8 +23,8 @@ export function Home() {
       </Header>
       <Content>
         <div className="movies-header">
-          <MoviesCategories updateCategory={updateCategory}/>
-          <MoviesSort updateSort={updateSort}/>
+          <MoviesCategories updateCategory={setСurrentCategory}/>
+          <MoviesSort updateSort={setСurrentSort}/>
         </div>
         <MoviesList sortBy={currentSort} category={currentCategory}/>
       </Content>
