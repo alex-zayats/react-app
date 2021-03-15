@@ -15,7 +15,17 @@ export function MoviesCategories({updateCategory}) {
 
   return (
     <div className="categories-wrapper">
-      { categories.map(category => <p className="movie-category" onClick={handleChangeCategory} key={category} data-category={category}>{category}</p>) }
+      {
+        categories.map(category => (
+          <p className="movie-category"
+             onClick={handleChangeCategory}
+             key={category}
+             data-category={category}
+          >
+            {category}
+          </p>
+        ))
+      }
     </div>
   );
 }

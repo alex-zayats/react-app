@@ -51,7 +51,7 @@ export function MoviesList({sortBy, category}) {
       .map(movie => <MovieCard movie={movie} key={movie.title}/>)
   }
 
-  function showMovies() {
+  const showMovies = () => {
     const movies = getMovies(sortBy, category);
     return (movies.length > 0) 
       ? movies
