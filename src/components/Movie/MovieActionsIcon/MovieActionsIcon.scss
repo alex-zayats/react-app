@@ -1,0 +1,24 @@
+@import '~/src/variables.scss';
+
+.actions-icon.movie-actions-icon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: $backgroundColor;
+
+  &:before {
+    content: 'i';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    font-weight: bold;
+    transform: translateX(-50%);
+  }
+
+  .actions {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: $backgroundColor;
+  }
+}

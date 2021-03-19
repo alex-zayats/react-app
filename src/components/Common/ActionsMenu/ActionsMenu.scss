@@ -1,0 +1,16 @@
+@import '~/src/variables.scss';
+
+.actions-menu {
+  padding: 10px 15px;
+  cursor: default;
+  
+  .action-item {
+    font-size: 13px;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      color: white;
+    }
+  }
+}

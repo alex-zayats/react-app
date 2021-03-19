@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './MoviesSort.scss';
-
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './MoviesSort.scss';
 
 export function MoviesSort({updateSort}) {
   const [currentSort, setCurrentSort] = useState('title');

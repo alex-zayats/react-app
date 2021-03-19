@@ -1,0 +1,19 @@
+.actions-icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid gray;
+
+  .actions {
+    position: absolute;
+    display: none;
+  }
+
+  &.opened {
+    .actions {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

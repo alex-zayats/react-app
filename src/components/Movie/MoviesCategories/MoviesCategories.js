@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './MoviesCategories.scss';
-
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './MoviesCategories.scss';
 
 export function MoviesCategories({updateCategory}) {
   const [currentCategory, setCurrentCategory] = useState('All');
@@ -21,7 +20,7 @@ export function MoviesCategories({updateCategory}) {
              onClick={handleChangeCategory}
              key={category}
              data-category={category}
-          >
+            >
             {category}
           </p>
         ))

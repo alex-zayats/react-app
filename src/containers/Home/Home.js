@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { Content } from 'src/components/Content';
-import { Header } from 'src/components/Header';
-import { SearchInput } from 'src/components/SearchInput';
-import { MoviesCategories } from 'src/components/MoviesCategories';
-import { MoviesSort } from 'src/components/MoviesSort';
-import { MoviesList } from 'src/components/MoviesList';
+import { Content } from 'src/components/Common/Content';
+import { Header } from 'src/components/Common/Header';
+import { SearchInput } from 'src/components/Common/SearchInput';
+import { MoviesCategories } from 'src/components/Movie/MoviesCategories';
+import { MoviesSort } from 'src/components/Movie/MoviesSort';
+import { MoviesList } from 'src/components/Movie/MoviesList';
 
 import './Home.scss';
 
