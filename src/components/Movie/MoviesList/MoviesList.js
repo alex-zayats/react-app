@@ -1,15 +1,10 @@
 var _ = require('lodash/core');
-import React, { useState } from 'react';
+import React from 'react';
 import './MoviesList.scss';
 
-import { Spinner } from 'src/components/Common/Spinner';
 import { MovieCard } from 'src/components/Movie/MovieCard';
 
 export function MoviesList({sortBy, category}) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  setTimeout(() => setIsLoading(false), 2000); // will be moved to api
-
   const movies = [
     {
       id: 1,
@@ -58,7 +53,6 @@ export function MoviesList({sortBy, category}) {
 
   return (
     <>
-      <Spinner isLoading={isLoading}/>
       <div className="movies-list">
         {showMovies()}
       </div>

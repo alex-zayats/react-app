@@ -12,11 +12,9 @@ export function MovieCard(props) {
   return (
     <div className="movie-card" onPointerEnter={() => setActionsIconVisibility(true)} onPointerLeave={() => setActionsIconVisibility(false)}>
       <div className="movie-image"></div>
-      { actionsIconVisibility &&
-        <MovieActionsIcon>
-          <MovieActionsMenu movieId={id}></MovieActionsMenu>
-        </MovieActionsIcon>
-      }
+      <MovieActionsIcon isVisible={actionsIconVisibility}>
+        <MovieActionsMenu movieId={id}></MovieActionsMenu>
+      </MovieActionsIcon>
       <p className="movie-year">{year}</p>
       <p className="movie-title">{title}</p>
       <p className="movie-category">{category}</p>

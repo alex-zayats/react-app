@@ -7,13 +7,12 @@ export function useToggleModal() {
 }
 
 export function useGetMovieDetails(id, initiateLoading) {
-  const [movieDetails, setMovieDetails] = useState({});
+  const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
     initiateLoading && (async () => {
-      const res = await fetch(`https://my-json-server.typicode.com/typicode/demo/posts?id=${id}`);
+      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
       const data = await res.json();
-      data[0].id = id;
       setMovieDetails(data);
     })();
   }, [id, initiateLoading]);

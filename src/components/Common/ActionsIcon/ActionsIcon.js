@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ActionsIcon.scss';
 
-export function ActionsIcon({className, children}) {
+export function ActionsIcon({className, isVisible, children}) {
   const [isActionsVisible, setIsActionsVisible] = useState(false);
   
   const toggleActionsVisibility = (event) => {
@@ -10,9 +10,15 @@ export function ActionsIcon({className, children}) {
     }    
   }
 
+  useEffect(() => {
+    if (!isVisible) {
+      setIsActionsVisible(false);
+    }
+  }, [isVisible]);
+
   return (
-    <div className={`actions-icon ${className} ${isActionsVisible ? 'opened' : ''}`} onClick={toggleActionsVisibility}>
-      <div className="actions">
+    <div className={`actions-icon ${className} ${isVisible ? 'visible' : ''}`} onClick={toggleActionsVisibility}>
+      <div className={`actions ${isActionsVisible ? 'visible' : ''}`}>
         {children}
       </div>
     </div>
