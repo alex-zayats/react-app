@@ -12,7 +12,11 @@ export function EditMovieForm({movieDetails}) {
   const initialValues = {id, title, description: body};
 
   const onFormSubmit = (values ) => {
-    console.log('submit:' + values);
+    if (id) {
+      console.log('edit movie values:' + values);
+    } else {
+      console.log('add movie values:' + values);
+    }
   }
 
   return (
@@ -31,5 +35,5 @@ export function EditMovieForm({movieDetails}) {
 }
 
 EditMovieForm.propTypes = {
-  movieDetails: PropTypes.object.isRequired
+  movieDetails: PropTypes.object
 }
