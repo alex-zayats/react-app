@@ -1,0 +1,13 @@
+@import '~/src/variables.scss';
+
+.app-button {
+  display: block;
+  padding: 10px 50px;
+  font-size: 16px;
+  color: white;
+  background: $mainColor;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

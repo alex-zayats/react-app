@@ -4,6 +4,7 @@ import EditMovieFormSchema from './EditMovieFormSchema';
 import PropTypes from 'prop-types';
 import './EditMovieForm.scss';
 
+import { Button } from '/src/components/Common/Button';
 import { FormField } from '/src/components/Common/FormField';
 
 export function EditMovieForm({movieDetails}) {
@@ -23,7 +24,7 @@ export function EditMovieForm({movieDetails}) {
           <FormField id="movie-id" name="id" title="ID" readOnly disabled></FormField>
           <FormField id="movie-title" name="title" title="Title" validate></FormField>
           <FormField id="movie-category" name="category" title="Category" validate></FormField>
-          <button type="submit" className="submit-btn">Save</button>
+          <Button type="submit" className="submit-btn">Save</Button>
         </Form>
     </Formik>
   );
