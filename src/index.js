@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 
-import { ErrorBoundary } from './components/ErrorBoundary';
+import { ErrorBoundary } from './components/Common/ErrorBoundary';
+import { Content } from './components/Common/Content';
+import { ModalWrapper } from './components/Common/Modal';
+import { Footer } from './components/Common/Footer';
 import { Home } from './containers/Home';
-import { Content } from './components/Content';
-import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <p>Copyright, 2021 (c)</p>
         </Content>
       </Footer>
+      <ModalWrapper/>
     </ErrorBoundary>
   );
 }

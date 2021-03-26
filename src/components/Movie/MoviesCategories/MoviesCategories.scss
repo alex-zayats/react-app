@@ -1,0 +1,11 @@
+.categories-wrapper {
+  display: flex;
+  margin: 20px 0;
+
+  .movie-category {
+    margin-right: 20px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}

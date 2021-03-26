@@ -1,0 +1,16 @@
+@import '~/src/variables.scss';
+
+.search-input {
+  width: 300px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 3px;
+  margin-right: 20px;
+  vertical-align: top;
+  border: none;
+  outline: none;
+
+  & + .search-button {
+    display: inline-block;
+  }
+}
