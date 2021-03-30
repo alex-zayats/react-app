@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './MovieCard.scss';
 
@@ -8,9 +9,13 @@ import { MovieActionsMenu } from '/src/components/Movie/MovieActionsMenu';
 export function MovieCard(props) {
   const {id, title, year, category} = props.movie;
   const [actionsIconVisibility, setActionsIconVisibility] = useState(false);
+  const urlHistory = useHistory();
 
   return (
-    <div className="movie-card" onPointerEnter={() => setActionsIconVisibility(true)} onPointerLeave={() => setActionsIconVisibility(false)}>
+    <div className="movie-card"
+         onPointerEnter={() => setActionsIconVisibility(true)}
+         onPointerLeave={() => setActionsIconVisibility(false)}
+         onClick={() => urlHistory.push('/movie-details/' + id)}>
       <div className="movie-image"></div>
       <MovieActionsIcon isVisible={actionsIconVisibility}>
         <MovieActionsMenu movieId={id}></MovieActionsMenu>

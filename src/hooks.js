@@ -7,7 +7,7 @@ export function useToggleModal() {
 }
 
 export function useGetMovieDetails(id, initiateLoading) {
-  const [movieDetails, setMovieDetails] = useState(null);
+  const [movieDetails, setMovieDetails] = useState({});
 
   useEffect(() => {
     initiateLoading && (async () => {

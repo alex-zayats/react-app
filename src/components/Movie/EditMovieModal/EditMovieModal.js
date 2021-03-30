@@ -12,7 +12,7 @@ export function EditMovieModal({movieId, isModalOpened, closeModal}) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (movieDetails) {
+    if (Object.keys(movieDetails).length == 0) {
       setIsLoading(false);
     }
   }, [movieDetails])
