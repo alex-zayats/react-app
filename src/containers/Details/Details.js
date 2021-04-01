@@ -21,7 +21,7 @@ export function Details() {
           <Link to="/">
             <Button className="home-btn">Go to Home</Button>
           </Link> 
-          <MovieDetails movieId={+id}></MovieDetails>
+          <MovieDetails movieId={Number(id)}></MovieDetails>
         </Content>
       </MovieDetailsHeader>
       <Content>

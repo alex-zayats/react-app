@@ -1,14 +1,9 @@
 .actions-icon {
-  display: none;
   width: 30px;
   height: 30px;
   position: relative;
   border-radius: 50%;
   border: 1px solid gray;
-
-  &.visible {
-    display: block;
-  }
 
   .actions {
     position: absolute;

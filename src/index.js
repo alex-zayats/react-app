@@ -20,12 +20,15 @@ function App() {
 
       <Router>
         <Switch>
+          
           <Route path="/movie-details/:id">
-          <Details/>
+            <Details/>
           </Route>
+
           <Route path="/">
             <Home/>
           </Route>
+
         </Switch>
       </Router>
 

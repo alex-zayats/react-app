@@ -5,7 +5,8 @@ import './MovieDetails.scss';
 import { useGetMovieDetails } from 'src/hooks.js';
 
 export function MovieDetails({movieId}) {
-  const {year = 'Unknown', title, body, userId} = useGetMovieDetails(movieId, true);
+  const [movieDetails] = useGetMovieDetails(movieId, true);
+  const {year = 'Unknown', title, body, userId} = movieDetails;
 
   return (
     <div className="movie-details">

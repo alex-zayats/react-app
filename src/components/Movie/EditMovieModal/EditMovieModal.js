@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Modal } from 'src/components/Common/Modal';
@@ -7,15 +7,7 @@ import { EditMovieForm } from 'src/components/Movie/EditMovieForm';
 import { useGetMovieDetails } from 'src/hooks.js';
 
 export function EditMovieModal({movieId, isModalOpened, closeModal}) {
-  const movieDetails = useGetMovieDetails(movieId, isModalOpened);
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (Object.keys(movieDetails).length == 0) {
-      setIsLoading(false);
-    }
-  }, [movieDetails])
+  const [movieDetails, isLoading] = useGetMovieDetails(movieId, isModalOpened);
 
   return (
     <Modal title="Really edit?!" isModalOpened={isModalOpened} closeModal={closeModal}>
