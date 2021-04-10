@@ -36,7 +36,7 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired
+    genres: PropTypes.array.isRequired,
+    release_date: PropTypes.string.isRequired
   }).isRequired
 }

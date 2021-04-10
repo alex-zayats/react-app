@@ -11,8 +11,6 @@ import './Details.scss';
 
 export function Details() {
   const { id } = useParams();
-  const currentSort = 'title';
-  const currentCategory = 'All';
 
   return (
     <>
@@ -26,7 +24,7 @@ export function Details() {
       </MovieDetailsHeader>
       <Content>
         <h4 className="more-banner">Other movies</h4>
-        <MoviesList sortBy={currentSort} category={currentCategory}/>
+        <MoviesList/>
       </Content>
     </>
   );

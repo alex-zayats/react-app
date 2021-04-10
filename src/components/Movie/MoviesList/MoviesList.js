@@ -1,61 +1,45 @@
-var _ = require('lodash/core');
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import './MoviesList.scss';
 
+import { getMovies } from 'src/actions';
 import { MovieCard } from 'src/components/Movie/MovieCard';
 
-export function MoviesList({sortBy, category}) {
-  const movies = [
-    {
-      id: 1,
-      title: 'Terminator',
-      category: 'comedy',
-      year: 2005
-    },
-    {
-      id: 2,
-      title: 'Bohemian Rapsody',
-      category: 'horror',
-      year: 2003
-    },
-    {
-      id: 3,
-      title: 'Pirrates of Carrebian Sea 3',
-      category: 'comedy',
-      year: 2011
-    },
-    {
-      id: 4,
-      title: 'Pirrates of Carrebian Sea',
-      category: 'horror',
-      year: 2007
-    },
-    {
-      id: 5,
-      title: 'Pirrates of Carrebian Sea 2',
-      category: 'comedy',
-      year: 2009
-    }
-  ];
+function MoviesList({movies, sortBy, category, getMovies}) {
 
-  const getMovies = (sortBy, category) => {
-    return _.sortBy(movies, sortBy)
-      .filter(movie => category == 'All' || movie.category.toLowerCase() == category.toLowerCase())
-      .map(movie => <MovieCard movie={movie} key={movie.title}/>)
+  useState(() => {
+    console.log(sortBy);
+    getMovies(sortBy);
+  }, [sortBy, category]);
+
+  const getMovieCards = () => {
+    return movies.map(movie => <MovieCard movie={movie} key={movie.title}/>)
   }
 
   const showMovies = () => {
-    const movies = getMovies(sortBy, category);
-    return (movies.length > 0) 
-      ? movies
+    const movieCards = getMovieCards();
+    return (movieCards.length > 0) 
+      ? <>{movieCards}</>
       : <h4 className="movies-not-found">Sorry, not found movies for such category</h4>
   }
 
   return (
-    <>
-      <div className="movies-list">
-        {showMovies()}
-      </div>
-    </>
+    <div className="movies-list">
+      {showMovies()}
+    </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  movies: state.movie.list,
+  sortBy: state.filter.sortBy,
+  category: state.filter.category
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovies: (sortBy) => dispatch(getMovies(sortBy))
+});
+
+const connectedMoviesList = connect(mapStateToProps, mapDispatchToProps)(MoviesList);
+// export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
+export {connectedMoviesList as MoviesList};

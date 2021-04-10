@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import './Home.scss';
 
+import { setSortAction, setCategoryAction } from 'src/actions';
 import { Content } from 'src/components/Common/Content';
 import { Header } from 'src/components/Common/Header';
 import { SearchInput } from 'src/components/Common/SearchInput';
@@ -10,11 +13,10 @@ import { Button } from 'src/components/Common/Button';
 import { AddMovieModal  } from 'src/components/Movie/AddMovieModal';
 import { useToggleModal } from 'src/hooks.js';
 
-import './Home.scss';
+function Home({setSort, setСategory}) {
+  setSort('title');
+  setСategory('All');
 
-export function Home() {
-  const [currentSort, setСurrentSort] = useState('title');
-  const [currentCategory, setСurrentCategory] = useState('All');
   const [isAddModalOpened, setIsAddModalOpened] = useToggleModal();
 
   return (
@@ -29,11 +31,20 @@ export function Home() {
       </Header>
       <Content>
         <div className="movies-header">
-          <MoviesCategories updateCategory={setСurrentCategory}/>
-          <MoviesSort updateSort={setСurrentSort}/>
+          <MoviesCategories updateCategory={setСategory}/>
+          <MoviesSort updateSort={setSort}/>
         </div>
-        <MoviesList sortBy={currentSort} category={currentCategory}/>
+        <MoviesList/>
       </Content>
     </>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  setSort: (sort) => dispatch(setSortAction(sort)),
+  setСategory: (category) => dispatch(setCategoryAction(category))
+});
+
+const connectedHome = connect(null, mapDispatchToProps)(Home);
+// export default connect(null, mapDispatchToProps)(Home);
+export {connectedHome as Home};
