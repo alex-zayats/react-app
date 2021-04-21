@@ -4,7 +4,7 @@ async function getMovies(searchBy, sortBy, category) {
     searchBy: 'title',
     sortBy: sortBy,
     filter: category == 'All' ? '' : category,
-    sortOrder: 'desc'
+    sortOrder: sortBy == 'title' ? 'asc' : 'desc'
   });
   const moviesResponse = await fetch(`http://localhost:4000/movies?${searchParams}`);
   const movies = await moviesResponse.json();
