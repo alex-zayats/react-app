@@ -25,9 +25,27 @@ export const setCategoryAction = (category) => ({
 
 /********************** EPIC ACTIONS ******************************/
 
-export const getMovies = (sortBy) => (
-  async (dispatch) => {
-    const movies = await apiService.getMovies(sortBy);
+export const setSort = (sortBy) => (
+  async (dispatch, getState) => {
+    if (getState().movies.sortBy !== sortBy) {
+      dispatch(setSortAction(sortBy));
+      dispatch(getMovies());
+    }
+  }
+);
+
+export const setCategory = (category) => (
+  async (dispatch, getState) => {
+    if (getState().movies.category !== category) {
+      dispatch(setCategoryAction(category));
+      dispatch(getMovies());
+    }
+  }
+);
+
+export const getMovies = () => (
+  async (dispatch, getState) => {
+    const movies = await apiService.getMovies(getState().movies.sortBy, getState().movies.category);
     dispatch(getMoviesAction(movies));
   }
 );
@@ -35,6 +53,6 @@ export const getMovies = (sortBy) => (
 export const getMovieDetails = (movieId) => (
   async (dispatch) => {
     const movieDetails = await apiService.getMovieDetails(movieId);
-    dispatch(getMoviesAction(movieDetails));
+    dispatch(getMovieDetailsAction(movieDetails));
   }
 );

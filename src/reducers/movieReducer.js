@@ -1,22 +1,15 @@
 import * as types from 'src/actions/actionTypes';
 
 const initialState = {
-  sortBy: '',
-  category: ''
+  details: {}
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_SORT_BY:
-      return {
-        ...state,
-        sortBy: action.payload
-      };
-
-    case types.SET_CATEGORY:
+    case types.GET_MOVIE_DETAILS:
       return  {
         ...state,
-        category: action.payload
+        details: {...action.payload}
       };
 
     default:

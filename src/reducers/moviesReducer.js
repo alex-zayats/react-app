@@ -2,7 +2,8 @@ import * as types from 'src/actions/actionTypes';
 
 const initialState = {
   list: [],
-  details: {}
+  sortBy: 'title',
+  category: 'All'
 };
 
 export default (state = initialState, action) => {
@@ -13,10 +14,16 @@ export default (state = initialState, action) => {
         list: [...action.payload]
       };
 
-    case types.GET_MOVIE_DETAILS:
+    case types.SET_SORT_BY:
+      return {
+        ...state,
+        sortBy: action.payload
+      };
+
+    case types.SET_CATEGORY:
       return  {
         ...state,
-        details: {...action.payload}
+        category: action.payload
       };
 
     default:

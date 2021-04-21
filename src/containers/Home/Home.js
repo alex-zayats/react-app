@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './Home.scss';
 
-import { setSortAction, setCategoryAction } from 'src/actions';
+import { setSort, setCategory, getMovies } from 'src/actions';
 import { Content } from 'src/components/Common/Content';
 import { Header } from 'src/components/Common/Header';
 import { SearchInput } from 'src/components/Common/SearchInput';
@@ -13,11 +13,13 @@ import { Button } from 'src/components/Common/Button';
 import { AddMovieModal  } from 'src/components/Movie/AddMovieModal';
 import { useToggleModal } from 'src/hooks.js';
 
-function Home({setSort, setСategory}) {
-  setSort('title');
-  setСategory('All');
-
+function Home({setSort, setСategory, getMovies}) {
   const [isAddModalOpened, setIsAddModalOpened] = useToggleModal();
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+  
 
   return (
     <>
@@ -41,8 +43,9 @@ function Home({setSort, setСategory}) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setSort: (sort) => dispatch(setSortAction(sort)),
-  setСategory: (category) => dispatch(setCategoryAction(category))
+  setSort: (sort) => dispatch(setSort(sort)),
+  setСategory: (category) => dispatch(setCategory(category)),
+  getMovies: () => dispatch(getMovies())
 });
 
 const connectedHome = connect(null, mapDispatchToProps)(Home);

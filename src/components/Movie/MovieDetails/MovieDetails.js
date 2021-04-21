@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './MovieDetails.scss';
 
-import { useGetMovieDetails } from 'src/hooks.js';
-
-export function MovieDetails({movieId}) {
-  const [movieDetails] = useGetMovieDetails(movieId, true);
-  const {year = 'Unknown', title, body, userId} = movieDetails;
+function MovieDetails({movieDetails}) {
+  const {release_date = 'Unknown', title, overview, vote_average} = movieDetails;
 
   return (
     <div className="movie-details">
@@ -14,15 +11,19 @@ export function MovieDetails({movieId}) {
 
       <div className="movie-title-wrapper">
         <h4 className="movie-title">{title}</h4>
-        <p className="movie-rating">{userId}</p>
+        <p className="movie-rating">{vote_average}</p>
       </div>
 
-      <h4 className="movie-year">{year}</h4>
-      <p className="movie-category">{body}</p>
+      <h4 className="movie-year">{release_date}</h4>
+      <p className="movie-category">{overview}</p>
     </div>
   );
 }
 
-MovieDetails.propTypes = {
-  movieId: PropTypes.number.isRequired
-}
+const mapStateToProps = (state) => ({
+  movieDetails: state.movie.details
+});
+
+const connectedMovieDetails = connect(mapStateToProps)(MovieDetails);
+// export default connect(mapStateToProps)(MovieDetails);
+export {connectedMovieDetails as MovieDetails};
