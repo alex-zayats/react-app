@@ -13,6 +13,11 @@ export const getMovieDetailsAction = (movieDetails) => ({
   payload: movieDetails
 });
 
+export const setSearchAction = (search) => ({
+  type: types.SET_SEARCH_BY,
+  payload: search
+});
+
 export const setSortAction = (sort) => ({
   type: types.SET_SORT_BY,
   payload: sort
@@ -24,6 +29,15 @@ export const setCategoryAction = (category) => ({
 });
 
 /********************** EPIC ACTIONS ******************************/
+
+export const setSearch = (search) => (
+  async (dispatch, getState) => {
+    if (getState().movies.searchBy !== search) {
+      dispatch(setSortAction(search));
+    }
+    dispatch(getMovies());
+  }
+);
 
 export const setSort = (sortBy) => (
   async (dispatch, getState) => {
@@ -45,7 +59,11 @@ export const setCategory = (category) => (
 
 export const getMovies = () => (
   async (dispatch, getState) => {
-    const movies = await apiService.getMovies(getState().movies.sortBy, getState().movies.category);
+    const movies = await apiService.getMovies(
+      getState().movies.searchBy,
+      getState().movies.sortBy,
+      getState().movies.category
+    );
     dispatch(getMoviesAction(movies));
   }
 );

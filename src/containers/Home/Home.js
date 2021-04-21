@@ -5,7 +5,7 @@ import './Home.scss';
 import { getMovies } from 'src/actions';
 import { Content } from 'src/components/Common/Content';
 import { Header } from 'src/components/Common/Header';
-import { SearchInput } from 'src/components/Common/SearchInput';
+import { MovieSearchInput } from 'src/components/Movie/MovieSearchInput';
 import { MoviesCategories } from 'src/components/Movie/MoviesCategories';
 import { MoviesSort } from 'src/components/Movie/MoviesSort';
 import { MoviesList } from 'src/components/Movie/MoviesList';
@@ -26,7 +26,7 @@ function Home({getMovies}) {
       <Header>
         <Content>
           <h3 className="title">Find Your Movie</h3>
-          <SearchInput/>
+          <MovieSearchInput/>
           <Button className="add-movie-btn" onClick={() => setIsAddModalOpened(true)}>Add Movie</Button>
           <AddMovieModal isModalOpened={isAddModalOpened} closeModal={() => setIsAddModalOpened(false)}></AddMovieModal>
         </Content>

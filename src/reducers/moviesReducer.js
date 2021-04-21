@@ -2,6 +2,7 @@ import * as types from 'src/actions/actionTypes';
 
 const initialState = {
   list: [],
+  searchBy: '',
   sortBy: 'title',
   category: 'All'
 };
@@ -12,6 +13,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         list: [...action.payload]
+      };
+
+    case types.SET_SEARCH_BY:
+      return {
+        ...state,
+        searchBy: action.payload
       };
 
     case types.SET_SORT_BY:

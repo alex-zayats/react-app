@@ -1,5 +1,7 @@
-async function getMovies(sortBy, category) {
+async function getMovies(searchBy, sortBy, category) {
   const searchParams = new URLSearchParams({
+    search: searchBy,
+    searchBy: 'title',
     sortBy: sortBy,
     filter: category == 'All' ? '' : category,
     sortOrder: 'desc'
