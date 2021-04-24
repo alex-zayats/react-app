@@ -4,7 +4,8 @@ const initialState = {
   list: [],
   searchBy: '',
   sortBy: 'title',
-  category: 'All'
+  category: 'All',
+  isLoading: false
 };
 
 export default (state = initialState, action) => {
@@ -32,6 +33,12 @@ export default (state = initialState, action) => {
         ...state,
         category: action.payload
       };
+
+    case types.SET_MOVIES_LOADING:
+      return  {
+        ...state,
+        isLoading: action.payload
+      };    
 
     default:
      return state;

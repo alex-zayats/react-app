@@ -1,7 +1,8 @@
 import * as types from 'src/actions/actionTypes';
 
 const initialState = {
-  details: {}
+  details: {},
+  isLoading: false
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,12 @@ export default (state = initialState, action) => {
         ...state,
         details: {...action.payload}
       };
+
+    case types.SET_MOVIE_DETAILS_LOADING:
+      return  {
+        ...state,
+        isLoading: action.payload
+      };      
 
     default:
      return state;

@@ -17,7 +17,19 @@ async function getMovieDetails(id) {
   return movieDetails;
 }
 
+async function updateMovieDetails(movieDetails) {
+  const movieDetailsResponse = await fetch(`http://localhost:4000/movies`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(movieDetails)
+  });
+  return movieDetailsResponse.status;
+}
+
 export default {
   getMovies,
-  getMovieDetails
+  getMovieDetails,
+  updateMovieDetails
 }

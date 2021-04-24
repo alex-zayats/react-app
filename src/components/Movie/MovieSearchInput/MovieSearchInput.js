@@ -12,11 +12,11 @@ export function MovieSearchInput() {
     dispatch(setSearch(submittedSearch));
   }
 
-  const handleChangeSearch = (updatedSearch) => {
+  const onChangeSearch = (updatedSearch) => {
     dispatch(setSearchAction(updatedSearch));
   }
 
   return (
-    <SearchInput value={currentSearch} onSubmit={onSearchSubmit} onChange={handleChangeSearch}/>    
+    <SearchInput value={currentSearch} onSubmit={onSearchSubmit} onChange={onChangeSearch}/>    
   );
 }

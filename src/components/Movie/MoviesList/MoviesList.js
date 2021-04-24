@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import './MoviesList.scss';
 
 import { MovieCard } from 'src/components/Movie/MovieCard';
+import { Spinner } from 'src/components/Common/Spinner';
 
-function MoviesList({movies}) {
+function MoviesList({movies, isLoading}) {
 
   const getMovieCards = () => {
     return movies.map(movie => <MovieCard movie={movie} key={movie.title}/>)
@@ -18,14 +19,18 @@ function MoviesList({movies}) {
   }
 
   return (
-    <div className="movies-list">
-      {showMovies()}
+    <>
+     <Spinner isLoading={isLoading}></Spinner>
+     <div className="movies-list">
+      {!isLoading && showMovies()}
     </div>
+    </>
   );
 }
 
 const mapStateToProps = (state) => ({
-  movies: state.movies.list
+  movies: state.movies.list,
+  isLoading: state.movies.isLoading,
 });
 
 const connectedMoviesList = connect(mapStateToProps)(MoviesList);

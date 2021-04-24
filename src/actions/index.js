@@ -13,6 +13,11 @@ export const getMovieDetailsAction = (movieDetails) => ({
   payload: movieDetails
 });
 
+export const setMovieDetailsLoadingAction = (isLoading) => ({
+  type: types.SET_MOVIE_DETAILS_LOADING,
+  payload: isLoading
+});
+
 export const setSearchAction = (search) => ({
   type: types.SET_SEARCH_BY,
   payload: search
@@ -27,6 +32,12 @@ export const setCategoryAction = (category) => ({
   type: types.SET_CATEGORY,
   payload: category
 });
+
+export const setMoviesLoadingAction = (isLoading) => ({
+  type: types.SET_MOVIES_LOADING,
+  payload: isLoading
+});
+
 
 /********************** EPIC ACTIONS ******************************/
 
@@ -59,18 +70,32 @@ export const setCategory = (category) => (
 
 export const getMovies = () => (
   async (dispatch, getState) => {
+    dispatch(setMoviesLoadingAction(true));
     const movies = await apiService.getMovies(
       getState().movies.searchBy,
       getState().movies.sortBy,
       getState().movies.category
     );
     dispatch(getMoviesAction(movies));
+    dispatch(setMoviesLoadingAction(false));
   }
 );
 
 export const getMovieDetails = (movieId) => (
   async (dispatch) => {
+    dispatch(setMovieDetailsLoadingAction(true));
     const movieDetails = await apiService.getMovieDetails(movieId);
     dispatch(getMovieDetailsAction(movieDetails));
+    dispatch(setMovieDetailsLoadingAction(false));
   }
 );
+
+export const updateMovieDetails = (movieDetails) => (
+  async (dispatch) => {
+    dispatch(setMovieDetailsLoadingAction(true));
+    await apiService.updateMovieDetails(movieDetails);
+    dispatch(getMovieDetailsAction(movieDetails));
+    dispatch(setMovieDetailsLoadingAction(false));
+  }
+);
+
