@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export function useToggleModal() {
   const [isModalOpened, setIsModalOpened] = useState(false);
+  const toggleModalOpened = (isModalOpened) => {
+    setIsModalOpened(!isModalOpened);
+  }
 
-  return [isModalOpened, setIsModalOpened];
+  return [isModalOpened, toggleModalOpened];
 }
 
 // export function useGetMovieDetails(id, initiateLoading) {

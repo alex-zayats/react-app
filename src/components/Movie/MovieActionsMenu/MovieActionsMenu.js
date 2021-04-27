@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ActionsMenu } from 'src/components/Common/ActionsMenu';
-import { Modal } from 'src/components/Common/Modal';
+import { DeleteMovieModal  } from 'src/components/Movie/DeleteMovieModal';
 import { EditMovieModal  } from 'src/components/Movie/EditMovieModal';
 import { useToggleModal } from 'src/hooks.js';
 
 export function MovieActionsMenu({movieId}) {
-  const [isEditModalOpened, setIsEditModalOpened] = useToggleModal();
-  const [isDeleteModalOpened, setIsDeleteModalOpened] = useToggleModal();
+  const [isEditModalOpened, toggleEditModalOpened] = useToggleModal();
+  const [isDeleteModalOpened, toggleDeleteModalOpened] = useToggleModal();
 
   const movieMenuActions = [
     {
       title: 'Edit',
       handler: () => {
-        setIsEditModalOpened(true);
+        toggleEditModalOpened();
       }
     },
     {
       title: 'Delete',
       handler: () => {
-        setIsDeleteModalOpened(true);
+        toggleDeleteModalOpened();
       }
     }
   ];
@@ -28,10 +28,8 @@ export function MovieActionsMenu({movieId}) {
   return (
     <>
       <ActionsMenu items={movieMenuActions}></ActionsMenu>
-      <EditMovieModal movieId={movieId} isModalOpened={isEditModalOpened} closeModal={() => setIsEditModalOpened(false)}></EditMovieModal>
-      <Modal title='Really delete?!' isModalOpened={isDeleteModalOpened} closeModal={() => setIsDeleteModalOpened(false)}>
-        <p>Hello text </p><a href="/">here</a>
-      </Modal>
+      <EditMovieModal movieId={movieId} isModalOpened={isEditModalOpened} closeModal={toggleEditModalOpened}></EditMovieModal>
+      <DeleteMovieModal movieId={movieId} isModalOpened={isDeleteModalOpened} closeModal={toggleDeleteModalOpened}></DeleteMovieModal>
     </>
   )
 }

@@ -13,6 +13,13 @@ async function getMovies(searchBy, sortBy, category) {
   return movies.data;
 }
 
+async function deleteMovie(id) {
+  const movieDetailsResponse = await fetch(`${apiUrl}/movies/${id}`, {
+    method: 'DELETE'
+  });
+  return movieDetailsResponse.status;
+}
+
 async function getMovieDetails(id) {
   const movieDetailsResponse = await fetch(`${apiUrl}/movies/${id}`);
   const movieDetails = await movieDetailsResponse.json();
@@ -32,6 +39,7 @@ async function updateMovieDetails(movieDetails) {
 
 export default {
   getMovies,
+  deleteMovie,
   getMovieDetails,
   updateMovieDetails
 }

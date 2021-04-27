@@ -17,7 +17,10 @@ export default (state = initialState, action) => {
       return  {
         ...state,
         isLoading: action.payload
-      };      
+      };
+      
+    case types.DELETE_MOVIE:
+      return state; 
 
     default:
      return state;

@@ -10,7 +10,6 @@ import { EditMovieForm } from 'src/components/Movie/EditMovieForm';
 export function EditMovieModal({movieId, isModalOpened, closeModal}) {
   const dispatch = useDispatch();
   const movieDetails = useSelector(state => state.movie.details);
-  const isMovieDetailsLoaded = movieDetails.id == movieId;
   const isLoading = useSelector(state => state.movie.isLoading);
 
   const onFormSubmit = (updatedMovieDetails) => {
@@ -28,7 +27,7 @@ export function EditMovieModal({movieId, isModalOpened, closeModal}) {
   return (
     <Modal title="Really edit?!" isModalOpened={isModalOpened} closeModal={closeModal}>
       <Spinner isLoading={isLoading}></Spinner>
-      {isMovieDetailsLoaded && <EditMovieForm movieDetails={movieDetails} onFormSubmit={onFormSubmit}></EditMovieForm>}
+      {!isLoading && <EditMovieForm movieDetails={movieDetails} onFormSubmit={onFormSubmit}></EditMovieForm>}
     </Modal>
   );
 }

@@ -13,6 +13,11 @@ export const getMovieDetailsAction = (movieDetails) => ({
   payload: movieDetails
 });
 
+export const deleteMovieAction = (movieId) => ({
+  type: types.DELETE_MOVIE,
+  payload: null
+});
+
 export const setMovieDetailsLoadingAction = (isLoading) => ({
   type: types.SET_MOVIE_DETAILS_LOADING,
   payload: isLoading
@@ -99,3 +104,8 @@ export const updateMovieDetails = (movieDetails) => (
   }
 );
 
+export const deleteMovie = (movieId) => (
+  async () => {
+    await apiService.deleteMovie(movieId);
+  }
+);
