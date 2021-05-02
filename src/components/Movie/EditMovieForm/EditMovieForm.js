@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { MovieForm } from '/src/components/Movie/MovieForm';
 
-export function EditMovieForm({movieDetails}) {
-  const onFormSubmit = (formValues) => {
-    console.log('edit movie values:' + formValues);
+export function EditMovieForm({movieDetails, onFormSubmit = () => {}}) {
+  const handleFormSubmit = (formValues) => {
+    onFormSubmit(formValues);
   }
 
   return (
-    <MovieForm movieDetails={movieDetails} onFormSubmit={onFormSubmit}></MovieForm>
+    <MovieForm movieDetails={movieDetails} onFormSubmit={handleFormSubmit}></MovieForm>
   );
 }
 

@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './MoviesSort.scss';
 
-export function MoviesSort({updateSort}) {
-  const [currentSort, setCurrentSort] = useState('title');
+import { setSort } from 'src/actions';
+
+export function MoviesSort() {
+  const dispatch = useDispatch();
+  const currentSort = useSelector(state => state.movies.sortBy);
 
   const sortTypes = {
-    'year': 'Release date',
+    'release_date': 'Release date',
     'title': 'Title',
-    'category': 'Category'
+    'budget': 'Budget'
   };
 
   const handleChangeSort = (event) => {
-    setCurrentSort(event.target.value);
-    updateSort(event.target.value);
+    dispatch(setSort(event.target.value));
   }
 
   return (
@@ -24,8 +26,4 @@ export function MoviesSort({updateSort}) {
       </select>
     </div>
   );
-}
-
-MoviesSort.propTypes = {
-  updateSort: PropTypes.func
 }

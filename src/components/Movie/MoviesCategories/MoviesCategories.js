@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './MoviesCategories.scss';
 
-export function MoviesCategories({updateCategory}) {
-  const [currentCategory, setCurrentCategory] = useState('All');
+import { setCategory } from 'src/actions';
+
+export function MoviesCategories() {
+  const dispatch = useDispatch();
+  const currentCategory = useSelector(state => state.movies.category);
   
   const categories = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
 
   const handleChangeCategory = (event) => {
-    setCurrentCategory(event.target.dataset.category);
-    updateCategory(event.target.dataset.category);
+    dispatch(setCategory(event.target.dataset.category));
   }
 
   return (
@@ -20,6 +22,7 @@ export function MoviesCategories({updateCategory}) {
              onClick={handleChangeCategory}
              key={category}
              data-category={category}
+             data-selected={category == currentCategory}
             >
             {category}
           </p>
@@ -27,8 +30,4 @@ export function MoviesCategories({updateCategory}) {
       }
     </div>
   );
-}
-
-MoviesCategories.propTypes = {
-  updateCategory: PropTypes.func
 }

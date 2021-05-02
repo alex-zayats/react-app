@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
+import { getMovieDetails } from 'src/actions';
 import { Content } from 'src/components/Common/Content';
 import { MovieDetailsHeader } from 'src/components/Movie/MovieDetailsHeader';
 import { MovieDetails } from 'src/components/Movie/MovieDetails';
@@ -9,10 +11,12 @@ import { Button } from 'src/components/Common/Button';
 
 import './Details.scss';
 
-export function Details() {
+function Details({getMovieDetails}) {
   const { id } = useParams();
-  const currentSort = 'title';
-  const currentCategory = 'All';
+  useEffect(() => {
+    getMovieDetails(id);
+  }, [id]);
+  
 
   return (
     <>
@@ -21,13 +25,21 @@ export function Details() {
           <Link to="/">
             <Button className="home-btn">Go to Home</Button>
           </Link> 
-          <MovieDetails movieId={Number(id)}></MovieDetails>
+          <MovieDetails></MovieDetails>
         </Content>
       </MovieDetailsHeader>
       <Content>
         <h4 className="more-banner">Other movies</h4>
-        <MoviesList sortBy={currentSort} category={currentCategory}/>
+        <MoviesList/>
       </Content>
     </>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovieDetails: (id) => dispatch(getMovieDetails(id)),
+});
+
+const connectedDetails = connect(null, mapDispatchToProps)(Details);
+// export default connect(null, mapDispatchToProps)(Details);
+export {connectedDetails as Details};
