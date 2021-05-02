@@ -10,9 +10,9 @@ export function DeleteMovieModal({movieId, isModalOpened, closeModal}) {
   const dispatch = useDispatch();
 
   const onDeleteButtonClick = (movieId) => {
-    dispatch(deleteMovie(movieId));
-    dispatch(getMovies());
-    closeModal();
+    dispatch(deleteMovie(movieId))
+    .then(() => dispatch(getMovies()))
+    .then(() => closeModal());
   }
 
   return (
