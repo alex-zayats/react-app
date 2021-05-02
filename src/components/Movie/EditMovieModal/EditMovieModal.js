@@ -13,9 +13,9 @@ export function EditMovieModal({movieId, isModalOpened, closeModal}) {
   const isLoading = useSelector(state => state.movie.isLoading);
 
   const onFormSubmit = (updatedMovieDetails) => {
-    dispatch(updateMovieDetails(updatedMovieDetails));
-    dispatch(getMovies());
-    closeModal();
+    dispatch(updateMovieDetails(updatedMovieDetails))
+      .then(() => dispatch(getMovies()))
+      .then(() => closeModal());
   }
 
   useEffect(() => {
