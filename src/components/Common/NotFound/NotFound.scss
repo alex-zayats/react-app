@@ -1,0 +1,10 @@
+@import '~/src/variables.scss';
+
+.not-found {
+	font-family: SourceSans;
+	text-align: center;
+	font-size: 15vh;
+	color: $mainColor;
+	font-weight: bold;
+	text-shadow: 3px 3px 0 $secondaryTextColor;
+}

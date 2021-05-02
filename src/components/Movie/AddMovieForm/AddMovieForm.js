@@ -8,7 +8,7 @@ export function AddMovieForm() {
   }
 
   const movieEmptyDetails = {
-    id: -1,
+    id: null,
     title: '',
     body: ''
   }

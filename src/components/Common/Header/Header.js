@@ -1,9 +1,9 @@
 import React from 'react';
 import './Header.scss';
 
-export function Header({children}) {
+export function Header({className = 'main-header', children}) {
   return (
-    <header className="main-header">
+    <header className={className}>
       {children}
     </header>
   );
