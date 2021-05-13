@@ -11,7 +11,7 @@ jest.mock('src/components/Common/Spinner', () => {
   return { Spinner: (props) => <div className="spinner">{props.isLoading ? 'loading' : 'ready'}</div> };
 });
 
-fdescribe('MovieList component', () => {
+describe('MovieList component', () => {
   it('should render not found warning for empty movies list', () => {
     render(<MoviesList></MoviesList>);
     expect(document.querySelector('h4').textContent).toBe('Sorry, not found movies for such category');
