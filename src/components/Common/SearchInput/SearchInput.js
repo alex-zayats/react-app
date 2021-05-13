@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './SearchInput.scss';
 
-import { Button } from '/src/components/Common/Button';
+import { Button } from 'src/components/Common/Button';
 
 export function SearchInput({value = '', onChange, onSubmit}) {
   return (

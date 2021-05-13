@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { getMovies, deleteMovie } from 'src/actions';
 import { Modal } from 'src/components/Common/Modal';
-import { Button } from '/src/components/Common/Button';
+import { Button } from 'src/components/Common/Button';
 
 export function DeleteMovieModal({movieId, isModalOpened, closeModal}) {
   const dispatch = useDispatch();

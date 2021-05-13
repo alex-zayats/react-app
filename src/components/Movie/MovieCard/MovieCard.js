@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './MovieCard.scss';
 
-import { MovieActionsIcon } from '/src/components/Movie/MovieActionsIcon';
-import { MovieActionsMenu } from '/src/components/Movie/MovieActionsMenu';
+import { MovieActionsIcon } from 'src/components/Movie/MovieActionsIcon';
+import { MovieActionsMenu } from 'src/components/Movie/MovieActionsMenu';
 
 export function MovieCard(props) {
-  const {id, title, release_date, poster_path, genres} = props.movie;  
+  const { id, title, release_date, poster_path, genres } = props.movie;  
   const urlHistory = useHistory();
 
   const releaseDate = new Date(release_date);

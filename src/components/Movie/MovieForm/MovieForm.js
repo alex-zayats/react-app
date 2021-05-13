@@ -4,8 +4,8 @@ import MovieFormSchema from './MovieFormSchema';
 import PropTypes from 'prop-types';
 import './MovieForm.scss';
 
-import { Button } from '/src/components/Common/Button';
-import { FormField } from '/src/components/Common/FormField';
+import { Button } from 'src/components/Common/Button';
+import { FormField } from 'src/components/Common/FormField';
 
 export function MovieForm({movieDetails, onFormSubmit}) {
   return (

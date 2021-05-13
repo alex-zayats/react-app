@@ -1,4 +1,4 @@
-import apiService from 'src/api';
+import apiService from 'src/utils/api';
 import * as types from './actionTypes';
 
 /***********************  ACTIONS *********************************/
