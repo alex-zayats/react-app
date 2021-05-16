@@ -1,21 +1,27 @@
 import React from 'react';
 import { useToggleModal } from './hooks';
 
-jest.mock('react', () => {
-  return { 
-    useState: (initialValue) => {
-      let stateValue = initialValue;
+const mockSetState = jest.fn();
 
-      return [initialValue, (value) => stateValue = stateValue];
-    }
+jest.mock('react', () => {
+  return {
+    useState: (initialValue) => [initialValue, mockSetState]
   }
 });
 
 describe('hooks functionality', () => {
-
   it('should return approptiate result', () => {
     const [isModalOpened, toggleModalOpened] = useToggleModal();
     expect(isModalOpened).toBeFalsy();
     expect(typeof toggleModalOpened).toEqual('function');
+  });
+});
+
+describe('hooks functionality', () => {
+  it('should return approptiate result', () => {
+    const [isModalOpened, toggleModalOpened] = useToggleModal();
+    expect(isModalOpened).toBeFalsy();
+    toggleModalOpened();
+    expect(mockSetState).toBeCalledWith(!isModalOpened);
   });
 });
