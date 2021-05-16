@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render, fireEvent, screen } from 'src/utils/testRender';
+import { render } from 'src/utils/testRender';
 import { MoviesList } from './MoviesList';
 
 jest.mock('src/components/Movie/MovieCard', () => {
