@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ActionsMenu } from 'src/components/Common/ActionsMenu';
 import { DeleteMovieModal  } from 'src/components/Movie/DeleteMovieModal';
 import { EditMovieModal  } from 'src/components/Movie/EditMovieModal';
-import { useToggleModal } from 'src/hooks.js';
+import { useToggleModal } from 'src/utils/hooks.js';
 
 export function MovieActionsMenu({movieId}) {
   const [isEditModalOpened, toggleEditModalOpened] = useToggleModal();

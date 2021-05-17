@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieActionsIcon.scss';
 
-import { ActionsIcon } from '/src/components/Common/ActionsIcon';
+import { ActionsIcon } from 'src/components/Common/ActionsIcon';
 
 export function MovieActionsIcon({children}) {
   return (

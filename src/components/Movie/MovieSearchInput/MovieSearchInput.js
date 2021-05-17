@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setSearchAction, setSearch } from 'src/actions';
-import { SearchInput } from '/src/components/Common/SearchInput';
+import { SearchInput } from 'src/components/Common/SearchInput';
 
 export function MovieSearchInput() {
   const dispatch = useDispatch();

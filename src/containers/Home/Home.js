@@ -11,7 +11,7 @@ import { MoviesSort } from 'src/components/Movie/MoviesSort';
 import { MoviesList } from 'src/components/Movie/MoviesList';
 import { Button } from 'src/components/Common/Button';
 import { AddMovieModal  } from 'src/components/Movie/AddMovieModal';
-import { useToggleModal } from 'src/hooks.js';
+import { useToggleModal } from 'src/utils/hooks.js';
 
 function Home({getMovies}) {
   const [isAddModalOpened, setIsAddModalOpened] = useToggleModal();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MovieForm } from '/src/components/Movie/MovieForm';
+import { MovieForm } from 'src/components/Movie/MovieForm';
 
 export function AddMovieForm() {
   const onFormSubmit = (formValues) => {
