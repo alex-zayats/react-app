@@ -3,7 +3,7 @@ import styles from './Header.module.scss';
 
 export function Header({className = styles['main-header'], children}) {
   return (
-    <header className={className}>
+    <header className={`${styles['header']} ${className}`}>
       {children}
     </header>
   );

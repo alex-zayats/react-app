@@ -9,7 +9,7 @@ import { MovieDetails } from 'src/components/Movie/MovieDetails';
 import { MoviesList } from 'src/components/Movie/MoviesList';
 import { Button } from 'src/components/Common/Button';
 
-import './Details.scss';
+import styles from './Details.module.scss';
 
 function Details({getMovieDetails}) {
   const { id } = useParams();
@@ -23,13 +23,13 @@ function Details({getMovieDetails}) {
       <MovieDetailsHeader>
         <Content>
           <Link to="/">
-            <Button className="home-btn">Go to Home</Button>
+            <Button className={styles['home-btn']}>Go to Home</Button>
           </Link> 
           <MovieDetails></MovieDetails>
         </Content>
       </MovieDetailsHeader>
       <Content>
-        <h4 className="more-banner">Other movies</h4>
+        <h4 className={styles['more-banner']}>Other movies</h4>
         <MoviesList/>
       </Content>
     </>

@@ -5,14 +5,14 @@ export function ActionsIcon({className, children}) {
   const [isActionsVisible, setIsActionsVisible] = useState(false);
   
   const toggleActionsVisibility = (event) => {
-    if (event.target.closest('.actions-icon')) {
+    if (event.target.closest(`.${styles['actions-icon']}`)) {
       setIsActionsVisible(!isActionsVisible);
     }    
   }
   
   return (
     <div className={`${styles['actions-icon']} ${className}`} onClick={toggleActionsVisibility}>
-      <div className={`actions ${isActionsVisible ? 'visible' : ''}`}>
+      <div className={`${styles['actions']} ${isActionsVisible ? styles['visible'] : ''}`}>
         {children}
       </div>
     </div>

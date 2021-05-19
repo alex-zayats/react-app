@@ -14,7 +14,6 @@ import { useToggleModal } from 'src/utils/hooks.js';
 
 import styles from './Home.module.scss';
 
-
 function Home({getMovies}) {
   const [isAddModalOpened, setIsAddModalOpened] = useToggleModal();
 
