@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './MoviesList.scss';
 
 import { MovieCard } from 'src/components/Movie/MovieCard';
 import { Spinner } from 'src/components/Common/Spinner';
+
+import styles from './MoviesList.module.scss';
 
 function MoviesList({movies, isLoading}) {
 
@@ -15,13 +16,13 @@ function MoviesList({movies, isLoading}) {
     const movieCards = getMovieCards();
     return (movieCards.length > 0) 
       ? <>{movieCards}</>
-      : <h4 className="movies-not-found">Sorry, not found movies for such category</h4>
+      : <h4 className={styles['movies-not-found']}>Sorry, not found movies for such category</h4>
   }
 
   return (
     <>
      <Spinner isLoading={isLoading}></Spinner>
-     <div className="movies-list">
+     <div className={styles['movies-list']}>
       {!isLoading && showMovies()}
     </div>
     </>

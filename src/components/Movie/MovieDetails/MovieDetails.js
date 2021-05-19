@@ -1,21 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './MovieDetails.scss';
+
+import styles from './MovieDetails.module.scss';
 
 function MovieDetails({movieDetails}) {
   const {release_date = 'Unknown', title, overview, vote_average} = movieDetails;
 
   return (
-    <div className="movie-details">
-      <div className="movie-image"></div>
+    <div className={styles['movie-details']}>
+      <div className={styles['movie-image']}></div>
 
-      <div className="movie-title-wrapper">
-        <h4 className="movie-title">{title}</h4>
-        <p className="movie-rating">{vote_average}</p>
+      <div className={styles['movie-title-wrapper']}>
+        <h4 className={styles['movie-title']}>{title}</h4>
+        <p className={styles['movie-rating']}>{vote_average}</p>
       </div>
 
-      <h4 className="movie-year">{release_date}</h4>
-      <p className="movie-category">{overview}</p>
+      <h4 className={styles['movie-year']}>{release_date}</h4>
+      <p className={styles['movie-category']}>{overview}</p>
     </div>
   );
 }

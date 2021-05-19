@@ -1,8 +1,8 @@
 import React from 'react';
-import './Button.scss';
+import styles from './Button.module.scss';
 
 export function Button({className = '', children, ...props}) {
   return (
-    <button className={className + " app-button"} type="button" {...props}>{children}</button>
+    <button className={`${className} ${styles['app-button']}`} type="button" {...props}>{children}</button>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import './Content.scss';
+import styles from './Content.module.scss';
 
 export function Content({children}) {
   return (
-    <div className="content">
+    <div className={styles['content']}>
       {children}
     </div>
   );

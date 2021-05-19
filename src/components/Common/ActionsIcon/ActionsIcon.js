@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ActionsIcon.scss';
+import styles from './ActionsIcon.module.scss';
 
 export function ActionsIcon({className, children}) {
   const [isActionsVisible, setIsActionsVisible] = useState(false);
@@ -11,7 +11,7 @@ export function ActionsIcon({className, children}) {
   }
   
   return (
-    <div className={`actions-icon ${className}`} onClick={toggleActionsVisibility}>
+    <div className={`${styles['actions-icon']} ${className}`} onClick={toggleActionsVisibility}>
       <div className={`actions ${isActionsVisible ? 'visible' : ''}`}>
         {children}
       </div>
