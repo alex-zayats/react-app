@@ -2,11 +2,12 @@ import React from 'react';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import {
-  StaticRouter as Router,
-  // BrowserRouter as Router,
+  StaticRouter,
+  BrowserRouter,
   Switch,
   Route
 } from 'react-router-dom';
+
 import thunk from 'redux-thunk';
 
 import { ErrorBoundary } from 'src/components/Common/ErrorBoundary';
@@ -20,12 +21,13 @@ import { Details } from 'src/containers/Details';
 import rootReducer from 'src/reducers';
 
 const mainStore = createStore(rootReducer, {}, applyMiddleware(thunk));
+const Router = typeof document == 'undefined' ? StaticRouter : BrowserRouter;
 
-function App() {
+function App({ currentLocation }) {
   return (
     <ErrorBoundary>
       <Provider store={mainStore}>
-        <Router>
+        <Router location={currentLocation}>
           <Switch>
             
             <Route path="/movie-details/:id">

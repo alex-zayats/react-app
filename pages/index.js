@@ -7,8 +7,8 @@ export default function Index() {
 	return <>
 		<Head>
 			<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
-	        <title>React movie app</title>
-	        <style jsx global>{`
+			<title>React movie app</title>
+			<style jsx="true" global="true">{`
 				body {
 				  margin: 0;
 				  background-color: #232323;
@@ -16,7 +16,6 @@ export default function Index() {
 
 				body * {
 				  box-sizing: border-box;
-				  font-family: 'SourceSans';
 				}
 
 				p {
