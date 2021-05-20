@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styles from './Modal.module.scss';
@@ -6,8 +6,7 @@ import styles from './Modal.module.scss';
 const modalWrapperId = 'main-modal-wrapper';
 
 export function Modal({title, isModalOpened, closeModal, children}) {
-
-  const modalElem = document && document.getElementById(modalWrapperId);
+  const modalElem = typeof document != 'undefined' && document.getElementById(modalWrapperId);
 
   return isModalOpened && ReactDOM.createPortal(
       <div className={styles['modal-wrapper']}>
