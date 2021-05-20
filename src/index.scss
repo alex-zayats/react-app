@@ -1,5 +1,26 @@
 @import 'variables.scss';
 
+body {
+  margin: 0;
+  background-color: #232323;
+}
+
+body * {
+  box-sizing: border-box;
+  font-family: 'SourceSans';
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 @font-face {
   font-family: 'SourceSans';
   src: url('./fonts/sourcesanspro-light.eot');

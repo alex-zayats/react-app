@@ -2,7 +2,8 @@ import React from 'react';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import {
-  BrowserRouter as Router,
+  StaticRouter as Router,
+  // BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
