@@ -6,14 +6,14 @@ import { getMovies, deleteMovie } from 'src/actions';
 import { Modal } from 'src/components/Common/Modal';
 import { Button } from 'src/components/Common/Button';
 
-export function DeleteMovieModal({movieId, isModalOpened, closeModal}) {
+export function DeleteMovieModal({ movieId, isModalOpened, closeModal }) {
   const dispatch = useDispatch();
 
   const onDeleteButtonClick = (movieId) => {
     dispatch(deleteMovie(movieId))
-    .then(() => dispatch(getMovies()))
-    .then(() => closeModal());
-  }
+      .then(() => dispatch(getMovies()))
+      .then(() => closeModal());
+  };
 
   return (
     <Modal title="Really delete?!" isModalOpened={isModalOpened} closeModal={closeModal}>
@@ -26,4 +26,4 @@ DeleteMovieModal.propTypes = {
   movieId: PropTypes.number.isRequired,
   isModalOpened: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired
-}
+};

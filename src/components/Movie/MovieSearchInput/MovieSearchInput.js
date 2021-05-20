@@ -6,17 +6,17 @@ import { SearchInput } from 'src/components/Common/SearchInput';
 
 export function MovieSearchInput() {
   const dispatch = useDispatch();
-  const currentSearch = useSelector(state => state.movies.searchBy);
+  const currentSearch = useSelector((state) => state.movies.searchBy);
 
   const onSearchSubmit = (submittedSearch) => {
     dispatch(setSearch(submittedSearch));
-  }
+  };
 
   const onChangeSearch = (updatedSearch) => {
     dispatch(setSearchAction(updatedSearch));
-  }
+  };
 
   return (
-    <SearchInput value={currentSearch} onSubmit={onSearchSubmit} onChange={onChangeSearch}/>    
+    <SearchInput value={currentSearch} onSubmit={onSearchSubmit} onChange={onChangeSearch} />    
   );
 }

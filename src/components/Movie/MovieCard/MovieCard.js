@@ -23,15 +23,15 @@ export function MovieCard(props) {
 
   const onCardClick = () => {
     urlHistory.push(`/movie-details/${id}`);
-  }
+  };
 
   return (
     <div className={styles['movie-card']} onClick={onCardClick}>
-      <img className={styles['movie-image']} src={poster_path}></img>
+      <img className={styles['movie-image']} src={poster_path} />
 
       <div className={styles['actions-container']} onClick={(event) => { event.stopPropagation(); }}>
         <MovieActionsIcon>
-          <MovieActionsMenu movieId={id}></MovieActionsMenu>
+          <MovieActionsMenu movieId={id} />
         </MovieActionsIcon>
       </div>
 
@@ -49,4 +49,4 @@ MovieCard.propTypes = {
     genres: PropTypes.array.isRequired,
     release_date: PropTypes.string.isRequired
   }).isRequired
-}
+};
