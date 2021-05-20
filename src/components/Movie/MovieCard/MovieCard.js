@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './MovieCard.scss';
 
 import { MovieActionsIcon } from 'src/components/Movie/MovieActionsIcon';
 import { MovieActionsMenu } from 'src/components/Movie/MovieActionsMenu';
+
+import styles from './MovieCard.module.scss';
 
 export function MovieCard(props) {
   const { id, title, release_date, poster_path, genres } = props.movie;  
@@ -25,18 +26,18 @@ export function MovieCard(props) {
   }
 
   return (
-    <div className="movie-card" onClick={onCardClick}>
-      <img className="movie-image" src={poster_path}></img>
+    <div className={styles['movie-card']} onClick={onCardClick}>
+      <img className={styles['movie-image']} src={poster_path}></img>
 
-      <div className="actions-container" onClick={(event) => { event.stopPropagation(); }}>
+      <div className={styles['actions-container']} onClick={(event) => { event.stopPropagation(); }}>
         <MovieActionsIcon>
           <MovieActionsMenu movieId={id}></MovieActionsMenu>
         </MovieActionsIcon>
       </div>
 
-      <p className="movie-year">{releaseDate.getFullYear()}</p>
-      <p className="movie-title">{title}</p>
-      <p className="movie-category">{shortedGenres.join(', ')}</p>
+      <p className={styles['movie-year']}>{releaseDate.getFullYear()}</p>
+      <p className={styles['movie-title']}>{title}</p>
+      <p className={styles['movie-category']}>{shortedGenres.join(', ')}</p>
     </div>
   );
 }

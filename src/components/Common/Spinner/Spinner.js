@@ -1,8 +1,8 @@
 import React from 'react';
-import './Spinner.scss';
+import styles from './Spinner.module.scss';
 
 export function Spinner({isLoading}) {
   return (
-    isLoading ? <p className="loading-text">Data is loading...</p> : null
+    isLoading ? <p className={styles['loading-text']}>Data is loading...</p> : null
   );
 }

@@ -1,6 +1,6 @@
 @import '~/src/variables.scss';
 
-.actions-icon.movie-actions-icon {
+.movie-actions-icon {
   position: absolute;
   top: 25px;
   right: 25px;
@@ -13,11 +13,5 @@
     left: 50%;
     font-weight: bold;
     transform: translateX(-50%);
-  }
-
-  .actions {
-    top: -1px;
-    right: -1px;
-    background: $backgroundColor;
   }
 }

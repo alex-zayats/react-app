@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './MoviesSort.scss';
 
 import { setSort } from 'src/actions';
+
+import styles from './MoviesSort.module.scss';
 
 export function MoviesSort() {
   const dispatch = useDispatch();
@@ -19,9 +20,9 @@ export function MoviesSort() {
   }
 
   return (
-    <div className="sort-wrapper">
-      <p className="sort-title">Sort by</p>
-      <select className="movies-sort" value={currentSort} onChange={handleChangeSort}>
+    <div className={styles['sort-wrapper']}>
+      <p className={styles['sort-title']}>Sort by</p>
+      <select className={styles['movies-sort']} value={currentSort} onChange={handleChangeSort}>
         { Object.keys(sortTypes).map(sortType => <option value={sortType} key={sortType}>{sortTypes[sortType]}</option>) }
       </select>
     </div>

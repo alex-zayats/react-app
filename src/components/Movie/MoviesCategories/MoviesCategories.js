@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './MoviesCategories.scss';
 
 import { setCategory } from 'src/actions';
+
+import styles from './MoviesCategories.module.scss';
 
 export function MoviesCategories() {
   const dispatch = useDispatch();
@@ -15,10 +16,10 @@ export function MoviesCategories() {
   }
 
   return (
-    <div className="categories-wrapper">
+    <div className={styles['categories-wrapper']}>
       {
         categories.map(category => (
-          <p className="movie-category"
+          <p className={styles['movie-category']}
              onClick={handleChangeCategory}
              key={category}
              data-category={category}

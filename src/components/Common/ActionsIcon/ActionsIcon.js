@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import './ActionsIcon.scss';
+import styles from './ActionsIcon.module.scss';
 
 export function ActionsIcon({className, children}) {
   const [isActionsVisible, setIsActionsVisible] = useState(false);
   
   const toggleActionsVisibility = (event) => {
-    if (event.target.closest('.actions-icon')) {
+    if (event.target.closest(`.${styles['actions-icon']}`)) {
       setIsActionsVisible(!isActionsVisible);
     }    
   }
   
   return (
-    <div className={`actions-icon ${className}`} onClick={toggleActionsVisibility}>
-      <div className={`actions ${isActionsVisible ? 'visible' : ''}`}>
+    <div className={`${styles['actions-icon']} ${className}`} onClick={toggleActionsVisibility}>
+      <div className={`${styles['actions']} ${isActionsVisible ? styles['visible'] : ''}`}>
         {children}
       </div>
     </div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ActionsMenu.scss';
+import styles from './ActionsMenu.module.scss';
 
 export function ActionsMenu({items}) {
   return (
-    <div className="actions-menu">
+    <div className={styles['actions-menu']}>
       {
         items.map(({title, handler}) => (
           <div
-            className="action-item"
+            className={styles['action-item']}
             onClick={handler}
             key={title}
             >

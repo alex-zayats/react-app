@@ -1,9 +1,9 @@
 import React from 'react';
-import './Header.scss';
+import styles from './Header.module.scss';
 
-export function Header({className = 'main-header', children}) {
+export function Header({className = styles['main-header'], children}) {
   return (
-    <header className={className}>
+    <header className={`${styles['header']} ${className}`}>
       {children}
     </header>
   );
