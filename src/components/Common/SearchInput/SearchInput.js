@@ -18,4 +18,3 @@ SearchInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
-
