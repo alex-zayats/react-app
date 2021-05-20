@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { MovieCard } from 'src/components/Movie/MovieCard';
@@ -25,6 +26,11 @@ function MoviesList({ movies, isLoading }) {
     </>
   );
 }
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
 
 const mapStateToProps = (state) => ({
   movies: state.movies.list,
