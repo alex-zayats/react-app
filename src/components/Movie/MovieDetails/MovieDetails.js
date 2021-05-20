@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 import styles from './MovieDetails.module.scss';
 
 function MovieDetails({ movieDetails }) {
-  const { release_date = 'Unknown', title, overview, vote_average } = movieDetails;
+  const {
+    release_date = 'Unknown',
+    title,
+    overview,
+    vote_average
+  } = movieDetails;
 
   return (
     <div className={styles['movie-details']}>

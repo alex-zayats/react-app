@@ -9,8 +9,8 @@ import { Button } from 'src/components/Common/Button';
 export function DeleteMovieModal({ movieId, isModalOpened, closeModal }) {
   const dispatch = useDispatch();
 
-  const onDeleteButtonClick = (movieId) => {
-    dispatch(deleteMovie(movieId))
+  const onDeleteButtonClick = (deleteMovieId) => {
+    dispatch(deleteMovie(deleteMovieId))
       .then(() => dispatch(getMovies()))
       .then(() => closeModal());
   };

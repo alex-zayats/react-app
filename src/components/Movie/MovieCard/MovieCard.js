@@ -8,7 +8,13 @@ import { MovieActionsMenu } from 'src/components/Movie/MovieActionsMenu';
 import styles from './MovieCard.module.scss';
 
 export function MovieCard(props) {
-  const { id, title, release_date, poster_path, genres } = props.movie;  
+  const {
+    id,
+    title,
+    release_date,
+    poster_path,
+    genres
+  } = props.movie;  
   const urlHistory = useHistory();
 
   const releaseDate = new Date(release_date);

@@ -23,7 +23,8 @@ export function MoviesSort() {
     <div className={styles['sort-wrapper']}>
       <p className={styles['sort-title']}>Sort by</p>
       <select className={styles['movies-sort']} value={currentSort} onChange={handleChangeSort}>
-        { Object.keys(sortTypes).map((sortType) => <option value={sortType} key={sortType}>{sortTypes[sortType]}</option>) }
+        { Object.keys(sortTypes).map((sortType) =>
+          <option value={sortType} key={sortType}>{sortTypes[sortType]}</option>) }
       </select>
     </div>
   );
