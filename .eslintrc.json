@@ -9,6 +9,15 @@
         "airbnb",
         "airbnb/hooks"
     ],
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["src", "./src"]
+                ]
+            }
+        }
+    },
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
