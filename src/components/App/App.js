@@ -21,7 +21,7 @@ import { Details } from 'src/containers/Details';
 import rootReducer from 'src/reducers';
 
 const mainStore = createStore(rootReducer, {}, applyMiddleware(thunk));
-const Router = typeof document == 'undefined' ? StaticRouter : BrowserRouter;
+const Router = typeof document === 'undefined' ? StaticRouter : BrowserRouter;
 
 function App({ currentLocation }) {
   return (
@@ -31,15 +31,15 @@ function App({ currentLocation }) {
           <Switch>
             
             <Route path="/movie-details/:id">
-              <Details/>
+              <Details />
             </Route>
 
             <Route exact path="/">
-              <Home/>
+              <Home />
             </Route>
 
             <Route path="*">
-              <NotFound/>
+              <NotFound />
             </Route>
 
           </Switch>
@@ -52,7 +52,7 @@ function App({ currentLocation }) {
         </Content>
       </Footer>
       
-      <ModalWrapper/>
+      <ModalWrapper />
 
     </ErrorBoundary>
   );
