@@ -7,8 +7,14 @@ import { MovieActionsMenu } from 'src/components/Movie/MovieActionsMenu';
 
 import styles from './MovieCard.module.scss';
 
-export function MovieCard(props) {
-  const { id, title, release_date, poster_path, genres } = props.movie;  
+export function MovieCard({ movie }) {
+  const {
+    id,
+    title,
+    release_date,
+    poster_path,
+    genres
+  } = movie;
   const urlHistory = useHistory();
 
   const releaseDate = new Date(release_date);
@@ -23,15 +29,15 @@ export function MovieCard(props) {
 
   const onCardClick = () => {
     urlHistory.push(`/movie-details/${id}`);
-  }
+  };
 
   return (
     <div className={styles['movie-card']} onClick={onCardClick}>
-      <img className={styles['movie-image']} src={poster_path}></img>
+      <img className={styles['movie-image']} src={poster_path} alt={title} />
 
       <div className={styles['actions-container']} onClick={(event) => { event.stopPropagation(); }}>
         <MovieActionsIcon>
-          <MovieActionsMenu movieId={id}></MovieActionsMenu>
+          <MovieActionsMenu movieId={id} />
         </MovieActionsIcon>
       </div>
 
@@ -46,7 +52,7 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    genres: PropTypes.array.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
     release_date: PropTypes.string.isRequired
   }).isRequired
-}
+};
